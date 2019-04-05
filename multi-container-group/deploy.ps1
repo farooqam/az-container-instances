@@ -1,25 +1,22 @@
 param (
 
-    [Parameter(Mandatory=$True)]
+    [Parameter(Mandatory=$False)]
     [string]
-    $ResourceGroupName,
+    $ResourceGroupName = "aci-container-groups-demo",
 
-    [Parameter(Mandatory=$True)]
+    [Parameter(Mandatory=$False)]
     [string]
-    $Location,
+    $Location = "westus2",
 
-    [Parameter(Mandatory=$True)]
+    [Parameter(Mandatory=$False)]
     [string]
-    $DeploymentFileName,
+    $DeploymentFileName = "deploy-aci.yaml",
 
-    [Parameter(Mandatory=$True)]
+    [Parameter(Mandatory=$False)]
     [string]
-    $ContainerGroupName
+    $ContainerGroupName = "myContainerGroup"
 )
 
-az login
 az group create --name $ResourceGroupName --location $Location
 az container create --resource-group $ResourceGroupName --file $DeploymentFileName
-
 az container show --resource-group $ResourceGroupName --name $ContainerGroupName --output table
-
