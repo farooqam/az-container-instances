@@ -33,7 +33,7 @@ param (
     $RegistryPassword,
 
     [Parameter(Mandatory=$True)]
-    [int]
+    [string]
     $Ports
 )
 
@@ -48,4 +48,4 @@ if ($State -ne "Running")
     return;
 }
 
-az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
+az container show --resource-group $ResourceGroupName --name $ContainerName --query ipAddress.fqdn
