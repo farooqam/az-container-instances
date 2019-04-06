@@ -24,11 +24,11 @@ param (
     [byte]
     $MemoryGB = 1,
 
-    [Parameter(Mandatory=$True)]
+    [Parameter(Mandatory=$False)]
     [string]
     $RegistryUserName,
 
-    [Parameter(Mandatory=$True)]
+    [Parameter(Mandatory=$False)]
     [string]
     $RegistryPassword,
 
